@@ -19,7 +19,9 @@ while op!=7:
                 e1.licznik_prob=0
             else:
                 user=us
-                if user!=False:
+                if isinstance(user,int) and user>1:
+                    print(f"Podaj slowo dlugosci {len(d1)}!!! Twoje slowo ma dlugosc {user}\n")
+                elif user!=False and isinstance(user,str):
                     wynik = e1.gra(user, d1)
                     print(wynik.stats)
                     e1.eksport_wyniku(wynik)
@@ -27,10 +29,10 @@ while op!=7:
                         break
                     else:
                         e1.licznik_prob = e1.licznik_prob - 1
-                elif user==False:
-                    print("Twoje slowo nie jest izogramem!!!\n")
                 else:
-                    print(f"Podaj slowo dlugosci {len(d1)}!!! Twoje slowo ma dlugosc {len(user)}\n")
+                    print("Twoje slowo nie jest izogramem!!!\n")
+
+
         if e1.licznik_prob == 0:
             print("Przegrales :((((")
             e1.licznik_prob=10
