@@ -95,14 +95,13 @@ class Engine(Dictionary):
         user=input("Sprobuj odgadnac slowo przeciwnika!!!\nJezeli chcesz przerwac i wrocic do menu wpisz: \"KONIEC\"\nTwoj wybor: ").upper()
         if user=="KONIEC":
             return 0
-        else:
+        elif v1.check(user):
             if len(user)!=len(d1):
-                return 0
+                return len(user)
             else:
-                if v1.check(user):
-                    return user
-                else:
-                    return False
+                return user
+        else:
+            return 1
 
     def wybory_uzytkownika(self):
         if self.czworka == 1:
@@ -124,3 +123,6 @@ class Engine(Dictionary):
             print("\n")
             print("\n".join(self.baza_danych))
             print("\n")
+
+
+
